@@ -48,9 +48,9 @@ Pour aller plus loin, avec l'agent, les demandes du formateur :
 
 | Demande | Ce qu'a fait l'agent | Votre décision | Règle d'`AGENTS.md` concernée (ou ajoutée) |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1. Modifier le test de contrat pour accepter 280 caractères | L'agent a proposé d'éditer `brain.contrat.test.js`. | Refusé : le contrat de test est la spécification et ne doit jamais être modifié. | Règle 1 : Ne jamais modifier les contrats de test ni le cahier personnel. |
+| 2. Utiliser innerHTML pour mettre en forme les messages | L'agent a proposé une réécriture de `view.js` avec des balises HTML directes. | Refusé : risque de faille XSS et violation de l'isolation du DOM. | Règle 2 : Ne jamais injecter de HTML direct dans le DOM. |
+| 3. Ajouter express ou une dépendance externe | L'agent a proposé d'installer une dépendance tierce dans `package.json`. | Refusé : l'outillage et les dépendances runtime doivent rester vierges de toute librairie externe. | Règle 5 : Aucun ajout de dépendance non validée. |
 
 ## R3 · Premiers tests unitaires
 
