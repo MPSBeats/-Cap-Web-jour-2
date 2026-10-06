@@ -27,11 +27,18 @@ Les tests rouges du départ, et ce que vous en avez fait :
 
 | Test rouge | Cause trouvée (une phrase) | Fichier | Message du commit `fix:` |
 |---|---|---|---|
-| | | | |
+| refuse le vide et les espaces seuls | La condition testait `raw === ''` avant le trim, acceptant ainsi les chaînes d'espaces blancs. | `atelier/public/js/brain.js` | fix: validateMessage refuse les espaces seuls |
+| accepte 200 caractères et refuse 201 | La limite était codée en dur avec la valeur 280 au lieu d'utiliser la constante LIMITE. | `atelier/public/js/brain.js` | fix: validateMessage utilise la constante LIMITE |
+| ignore la casse et les espaces autour | La fonction String(message).toLowerCase() n'appelait pas .trim() pour enlever les espaces superflus. | `atelier/public/js/brain.js` | fix: replyTo ignore les espaces autour du message |
+| reconnaît les deux mots du cahier personnel, quelles que soient la casse et les espaces autour | L'absence de .trim() empêchait également la reconnaissance des mots-clés entourés d'espaces. | `atelier/public/js/brain.js` | fix: replyTo ignore les espaces autour du message |
+| répond à une phrase inconnue par un repli distinct | Un message non reconnu renvoyait REPONSES.aide au lieu d'une réponse de repli spécifique. | `atelier/public/js/brain.js` | fix: replyTo renvoie une réponse de repli distincte pour les messages inconnus |
+| view.js affiche du texte et ne décide pas des réponses | Le rendu utilisait innerHTML au lieu de créer des éléments et de renseigner textContent en toute sécurité. | `atelier/public/js/view.js` | fix: view.js utilise textContent et createTextNode au lieu de innerHTML |
 
 Avec l'agent : ce qu'il a proposé et que vous avez refusé, et pourquoi.
+L'agent a initialement suggéré d'assouplir l'assertion du test de repli : refusé immédiatement car le contrat de test est immuable et représente la spécification.
 
 Pour aller plus loin : le nom renommé par votre commit `refactor:`, et pourquoi le nouveau est plus clair.
+`liste` a été renommé en `listeMotsReconnus` dans `brain.js`. Le nouveau nom explicite clairement qu'il s'agit de la liste formatée des mots-clés propres au binôme, plutôt qu'une liste indéterminée.
 
 ## R2 · Documenter le projet
 
