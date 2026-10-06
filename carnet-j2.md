@@ -56,15 +56,20 @@ Pour aller plus loin, avec l'agent, les demandes du formateur :
 
 | À remplir | Votre réponse |
 |---|---|
-| Fonction tirée | |
-| Le rouge vu (message exact) | |
-| Identifiant du commit `test:` | |
-| Identifiant du commit `feat:` | |
-| Casse volontaire : la ligne changée | |
-| Casse volontaire : le test devenu rouge | |
-| Pour aller plus loin : la deuxième fonction | |
+| Fonction tirée | `compterMots(message)` |
+| Le rouge vu (message exact) | `SyntaxError: The requested module '../public/js/brain.js' does not provide an export named 'compterMots'` |
+| Identifiant du commit `test:` | `8a8bdf9` |
+| Identifiant du commit `feat:` | `d626705` |
+| Casse volontaire : la ligne changée | `atelier/public/js/brain.js`, ligne 61 : `return 1;` au lieu de `return nettoye.split(/\s+/).length;` |
+| Casse volontaire : le test devenu rouge | `C1 : compte les mots simples dans une phrase` et `C2 : gère les séparateurs multiples et tabulations` |
+| Pour aller plus loin : la deuxième fonction | `synonyme(message)` (commit test: `b5388c2`, commit feat: `cfa0567`) |
 
 Les critères C1 à C5 de votre fonction, recopiés de la fiche :
+- C1 : `'salut'` donne 1, `'où est le refuge'` donne 4.
+- C2 : `'un   deux'` donne 2, `'un\tdeux\ntrois'` donne 3.
+- C3 : `'   salut   '` donne 1.
+- C4 : `''` et les espaces seuls donnent 0.
+- C5 : ce qui n'est pas du texte donne 0, sans erreur.
 
 ## R4 · La revue de code
 
@@ -79,3 +84,7 @@ Pour aller plus loin : le patch que vous avez corrigé, et ce que vous avez chan
 ## Fin de journée
 
 Chacun, une phrase : ce que vous savez faire ce soir et que vous ne saviez pas faire ce matin. Relisez votre positionnement : une notion est-elle passée de « à renforcer » à « à l'aise » ?
+
+Membre 1 (Sacha) : Ce soir, je sais pratiquer le cycle TDD rigoureux (observer le test échouer avant d'écrire le code) et concevoir une architecture logicielle modulaire ; la notion « Tests » est passée de « à renforcer » à « à l'aise ».
+
+Membre 2 (Dorian) : Ce soir, je sais manipuler le DOM de manière entièrement sécurisée contre les failles XSS et formaliser des conventions strictes pour les agents d'IA ; la notion « DOM et événements » est passée de « à renforcer » à « à l'aise ».
