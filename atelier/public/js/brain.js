@@ -49,3 +49,14 @@ export function replyTo(message) {
   // Message inconnu : on rappelle ce que Cap Web sait faire.
   return REPONSES.repli;
 }
+
+export function compterMots(message) {
+  if (typeof message !== 'string') {
+    return 0;
+  }
+  const nettoye = message.trim();
+  if (nettoye === '') {
+    return 0;
+  }
+  return nettoye.split(/\s+/).length;
+}
