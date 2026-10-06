@@ -60,3 +60,17 @@ export function compterMots(message) {
   }
   return nettoye.split(/\s+/).length;
 }
+
+export function synonyme(message) {
+  if (typeof message !== 'string') {
+    return '';
+  }
+  const texte = message.trim().toLowerCase();
+  if (texte === 'coucou' || texte === 'hello' || texte === 'bonsoir') {
+    return 'salut';
+  }
+  if (texte === 'help' || texte === 'sos') {
+    return 'aide';
+  }
+  return texte;
+}
