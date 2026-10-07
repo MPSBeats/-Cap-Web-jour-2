@@ -75,11 +75,12 @@ Les critères C1 à C5 de votre fonction, recopiés de la fiche :
 
 | Patch | Accepté ou refusé | Fichier et ligne | Raison |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | Accepté | `public/js/brain.js`, lignes 14 et 23 | Ajout sain d'une réponse à « merci » et de son test unitaire sans modifier le contrat ni les règles. |
+| 2 | Refusé | `tests/contrat/brain.contrat.test.js`, lignes 51-55 et 63-64 | Modification interdite du contrat de test pour masquer une régression (oubli de `.trim()` dans `normaliser`). |
+| 3 | Refusé | `public/js/view.js`, ligne 37 | Faille de sécurité XSS via `createContextualFragment` qui injecte et interprète du HTML brut dans le DOM. |
 
 Pour aller plus loin : le patch que vous avez corrigé, et ce que vous avez changé.
+Nous avons corrigé le patch 2 dans `mon-patch.patch` : conservation intacte du fichier `tests/contrat/brain.contrat.test.js` sans aucune modification de contrat, et ajout de `.trim()` dans `normaliser(message)` (`String(message).trim().toLowerCase()`). Tous les tests passent au vert (46/46).
 
 ## Fin de journée
 
