@@ -50,6 +50,18 @@ export function createApp({ publicDir, version = 'dev' } = {}) {
       res.end('Non trouvé');
       return;
     }
+    const CONSEILS = [
+      'Pensez à réserver votre table pour le service du soir !',
+      'Goûtez notre plat du jour fait maison avec des produits frais du marché.',
+      'Profitez de notre formule midi du mardi au vendredi.'
+    ];
+    if (chemin === '/api/conseil') {
+      const conseil = CONSEILS[Math.floor(Math.random() * CONSEILS.length)];
+      const corps = JSON.stringify({ conseil });
+      res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'content-length': Buffer.byteLength(corps) });
+      res.end(methode === 'HEAD' ? '' : corps);
+      return;
+    }
     // Métadonnée de version fournie au démarrage.
     if (chemin === '/version.json') {
       const corps = JSON.stringify({ version });
