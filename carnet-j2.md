@@ -98,3 +98,14 @@ Membre 2 (Dorian) : Ce soir, je sais manipuler le DOM de manière entièrement s
 - **Prédiction avant modification** : Si on ajoute un 3ème mot sans modifier la chaîne de `REPONSES.aide`, Cap Web continuera de répondre qu'il connaît « deux mots à moi », car la valeur 2 était inscrite en dur dans le texte de la réponse.
 - **Résultat observé** : En remplaçant « deux » par `${Object.keys(MOTS).length}`, Cap Web calcule dynamiquement le nombre de mots et répond bien « 3 mots à moi » avec la liste complète des mots.
 
+## Étape 2 · Le compteur de caractères
+- Le compteur `p#compteur` avec `aria-describedby` indique en direct la longueur du message saisi au format `X / 200`. Il est réinitialisé à `0 / 200` après chaque envoi ou effacement.
+
+## Étape 3 · L'accessibilité avec Lighthouse
+- **Score d'accessibilité initial (avec `<label>`)** : 100 / 100
+- **Score après suppression du `<label>`** : 82 / 100
+- **Alerte Lighthouse constatée** : `[Form elements do not have associated labels]` : « Les éléments de formulaire n'ont pas de libellé associé (`<label>`, `aria-label` ou `aria-labelledby`) ».
+- **Score rétabli après restauration du `<label>`** : 100 / 100
+- **Essai au clavier seul** : Navigation fluide avec `Tab` pour atteindre le champ, saisie au clavier et validation par la touche `Entrée` sans souris.
+
+
