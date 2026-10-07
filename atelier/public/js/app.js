@@ -9,6 +9,13 @@ const statut = document.querySelector('#status');
 const effacer = document.querySelector('#effacer');
 const versionElt = document.querySelector('#version');
 const limiteElt = document.querySelector('#limite');
+const compteurElt = document.querySelector('#compteur');
+
+function majCompteur() {
+  if (compteurElt) {
+    compteurElt.textContent = `${champ.value.length} / ${LIMITE}`;
+  }
+}
 
 const CLE = 'capweb.historique';
 const historique = [];
@@ -45,9 +52,12 @@ formulaire.addEventListener('submit', (event) => {
   sauvegarder();
   renderMessages(historique, liste);
   champ.value = '';
+  majCompteur();
   statut.textContent = '';
   champ.focus();
 });
+
+champ.addEventListener('input', majCompteur);
 
 effacer.addEventListener('click', () => {
   if (!confirm('Effacer toute la conversation ?')) {
@@ -62,6 +72,7 @@ effacer.addEventListener('click', () => {
 // La limite vient de brain.js : un seul endroit à modifier.
 champ.maxLength = LIMITE;
 limiteElt.textContent = String(LIMITE);
+majCompteur();
 
 charger();
 renderMessages(historique, liste);
