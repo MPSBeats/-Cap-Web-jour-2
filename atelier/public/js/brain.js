@@ -6,14 +6,15 @@ export const LIMITE = 200;
 
 const MOTS = {
   menu: 'Le menu du jour propose une formule du midi et des spécialités locales.',
-  reservation: 'Pour réserver une table, précisez la date, l’heure et le nombre de personnes.'
+  reservation: 'Pour réserver une table, précisez la date, l’heure et le nombre de personnes.',
+  horaires: 'Nous sommes ouverts du mardi au dimanche de 12h à 14h30 et de 19h à 22h30.'
 };
 
 const listeMotsReconnus = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
 
 const REPONSES = {
   salut: 'Bonjour ! Je suis Cap Web, un assistant à règles. Écrivez « aide » pour voir ce que je sais faire.',
-  aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${listeMotsReconnus}.`,
+  aide: `Je connais « salut », « aide », « test », et ${Object.keys(MOTS).length} mots à moi : ${listeMotsReconnus}.`,
   test: 'Test bien reçu : mes règles fonctionnent.',
   repli: 'Je ne comprends pas ce message. Écrivez « aide » pour découvrir mes commandes.'
 };

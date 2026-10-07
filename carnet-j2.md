@@ -89,3 +89,12 @@ Chacun, une phrase : ce que vous savez faire ce soir et que vous ne saviez pas f
 Membre 1 (Sacha) : Ce soir, je sais pratiquer le cycle TDD rigoureux (observer le test échouer avant d'écrire le code) et concevoir une architecture logicielle modulaire ; la notion « Tests » est passée de « à renforcer » à « à l'aise ».
 
 Membre 2 (Dorian) : Ce soir, je sais manipuler le DOM de manière entièrement sécurisée contre les failles XSS et formaliser des conventions strictes pour les agents d'IA ; la notion « DOM et événements » est passée de « à renforcer » à « à l'aise ».
+
+---
+
+# Jour 3 · Terminer Cap Web en 12 étapes
+
+## Étape 1 · Le troisième mot
+- **Prédiction avant modification** : Si on ajoute un 3ème mot sans modifier la chaîne de `REPONSES.aide`, Cap Web continuera de répondre qu'il connaît « deux mots à moi », car la valeur 2 était inscrite en dur dans le texte de la réponse.
+- **Résultat observé** : En remplaçant « deux » par `${Object.keys(MOTS).length}`, Cap Web calcule dynamiquement le nombre de mots et répond bien « 3 mots à moi » avec la liste complète des mots.
+
