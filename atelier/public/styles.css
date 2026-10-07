@@ -116,3 +116,31 @@ button:hover {
 footer {
   font-size: 0.9rem;
 }
+
+/* Version mobile : sous 600px, le bouton Envoyer prend toute la largeur */
+@media (max-width: 600px) {
+  #chat-form button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Thème sombre automatique */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --fond: #121212;
+    --texte: #f0f0f0;
+    --accent: #3a82f7;
+    --accent-fonce: #1b60d0;
+    --bord: #444444;
+  }
+
+  #messages li.bot {
+    background: #1e2638;
+  }
+
+  #effacer:hover {
+    background: #2a2a2a;
+  }
+}
+
